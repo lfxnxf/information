@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name='TTUNION_verify' content='b846c3c2b85efabc496d2a2b8399cd62'>
+    <meta name="sogou_site_verification" content="gI1bINaJcL"/>
+    <meta name="360-site-verification" content="37ae9186443cc6e270d8a52943cd3c5a"/>
+    <meta name="baidu_union_verify" content="99203948fbfbb64534dbe0f030cbe817">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE;chrome=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="AUI, a-ui.com">
+    <meta name="baidu-site-verification" content="ZVPGgtpUfW"/>
+    <title>润泽信息发布平台 -  同城通更通</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+    <link type="text/css" rel="stylesheet" href="admin/css/core.css">
+    <link type="text/css" rel="stylesheet" href="admin/css/icon.css">
+    <link type="text/css" rel="stylesheet" href="admin/css/home.css">
+    <script type="text/javascript" src="admin/js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript">
+        var currentShowCity=0;
+        $(document).ready(function(){
+            $("#province").change(function(){
+                $("#province option").each(function(i,o){
+                    if($(this).attr("selected"))
+                    {
+                        $(".city").hide();
+                        $(".city").eq(i).show();
+                        currentShowCity=i;
+                    }
+                });
+            });
+
+            $("#province").change();
+        });
+
+        function getSelectValue(){
+            alert("1级="+$("#province").val());
+            $(".city").each(function(i,o){
+                if(i == currentShowCity){
+
+                    alert("2级="+$(".city").eq(i).val());
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<!-- head YDC begin -->
+<header class="ydc-header">
+    <div class="ydc-entered">
+        <div class="ydc-header-content ydc-flex">
+            <div class="ydc-column">
+                <a href="index.html" class="ydc-column-ydc-logo">
+                    <img src="admin/images/icon/ydc-logo.png" title="" about="" alt="">
+                </a>
+            </div>
+            <div class="ydc-column">
+                <div class="ydc-column-user">
+                    <div class="ydc-user-photo">
+                        <a href="javascript:;">
+                            <img src="admin/images/icon/photo.png" title="" about="" alt="">
+                        </a>
+                    </div>
+                    <div class="ydc-user-info">
+                        <div class="ydc-user-info-name">
+                            <a href="javascript:;">润泽</a>
+                        </div>
+                        <div class="ydc-user-info-func ydc-flex">
+                            <span class="ydc-tag">账号状态</span>
+                            <span class="ydc-mal">
+                                        <i class="ydc-icon ydc-icon-mail fl"></i>
+                                        <em>12</em>
+                                    </span>
+                            <a href="javascript:;">退出</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- head YDC end -->

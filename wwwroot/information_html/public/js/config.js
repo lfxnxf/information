@@ -1,0 +1,1 @@
+var url = 'http//information_interface.com/api/';

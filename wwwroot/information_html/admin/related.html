@@ -1,0 +1,93 @@
+<include src="layout/header.html"></include>
+<meta charset="UTF-8">
+<!-- head YDC end -->
+
+<!-- content YDC begin -->
+<section>
+    <div class="ydc-content-slide ydc-body">
+        <div class="ydc-flex">
+            <!-- left begin -->
+            <include src="layout/menu.html"></include>
+            <!-- left end -->
+            <!-- right begin -->
+            <div class="ydc-column ydc-column-8">
+                <div class="ydc-release-content">
+                    <div class="ydc-tabPanel ydc-tabPanel-release">
+                        <div class="ydc-release-tab-head">
+                            <ul>
+                                <li class="hit">内容同步</li>
+                            </ul>
+                        </div>
+                        <div class="ydc-panes">
+                            <div class="ydc-pane" style="display:block;">
+                                <div class="clearfix">
+                                    <div class="fl ydc-group-sel">
+                                        <select style="width:160px;">
+                                            <option>请选择同步链接的类型</option>
+                                            <option>RSS或文章列表页</option>
+                                            <option>微信</option>
+                                            <option>头条</option>
+                                        </select>
+                                    </div>
+                                    <div class="fl ydc-group-input" style="width:755px;">
+                                        <input type="text" placeholder="请输入同步链接，请您务必确保对提交的内容源拥有版权" style="width:88%">
+                                        <button class="ydc-group-button">确 定</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ydc-right-banner">
+                                <div class="slideshow-container">
+                                    <a href="https://xihazahuopu.taobao.com/" target="_blank" class="mySlides fade">
+                                        <img src="admin/images/ad/ad1.jpg" style="width:100%">
+                                    </a>
+                                    <a href="https://weibo.com/525135676" target="_blank" class="mySlides fade">
+                                        <img src="admin/images/ad/ad2.jpg" style="width:100%">
+                                    </a>
+                                    <a href="http://www.a-ui.cn/" target="_blank" class="mySlides fade">
+                                        <img src="admin/images/ad/ad3.jpg" style="width:100%">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- right end -->
+        </div>
+    </div>
+
+</section>
+<!-- content YDC end -->
+
+<script type="text/javascript" src="admin/js/jquery.min.js"></script>
+<script type="text/javascript" src="admin/js/include.js"></script>
+<script type="text/javascript">
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // 滚动时间
+    }
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.ydc-tabPanel ul li').click(function () {
+            $(this).addClass('hit').siblings().removeClass('hit');
+            $('.ydc-panes>div:eq(' + $(this).index() + ')').show().siblings().hide();
+        })
+    })
+</script>
+
+</body>
+</html>
