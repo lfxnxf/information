@@ -218,4 +218,20 @@ class Utils
     {
         return md5($username . $password . self::random(16));
     }
+
+    /**
+     * 获取ip
+     * @return mixed|string
+     */
+    public static function getRealClientIp()
+    {
+        $remoteAddr = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+        if (strpos($remoteAddr, ',')) {
+            $tmp = explode(',', $remoteAddr);
+            $remoteIp = trim($tmp[0]);
+        } else {
+            $remoteIp = $remoteAddr;
+        }
+        return $remoteIp;
+    }
 }

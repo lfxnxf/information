@@ -10,7 +10,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "enqueue/amqp-bunny": "0.8",
-        "vladimir-yuldashev/laravel-queue-rabbitmq": "6.0"
+        "vladimir-yuldashev/laravel-queue-rabbitmq": "6.0",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
