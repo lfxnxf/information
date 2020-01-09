@@ -131,7 +131,9 @@
             password: $('#password').val()
         };
         ajaxPost(url, data, function(msg){
-            console.log(msg);
+            var data = msg.data;
+            localStorage.setItem('token', data.token);
+            window.location.href = 'index.html';
         })
     }
 </script>

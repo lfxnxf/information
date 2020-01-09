@@ -272,6 +272,7 @@
 
 <script type="text/javascript" src="admin/js/jquery.min.js"></script>
 <script type="text/javascript" src="admin/js/include.js"></script>
+<script type="text/javascript" src="admin/js/common.js"></script>
 <script type="text/javascript">
     var slideIndex = 0;
     showSlides();
@@ -296,6 +297,10 @@
         $('.ydc-tabPanel ul li').click(function () {
             $(this).addClass('hit').siblings().removeClass('hit');
             $('.ydc-panes>div:eq(' + $(this).index() + ')').show().siblings().hide();
+        });
+        var url = baseUrl + 'adminUser';
+        ajaxPost(url, {}, function(msg){
+            console.log(msg);
         })
     })
 </script>

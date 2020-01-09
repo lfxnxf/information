@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="招聘" http-equiv="keywords">
+<meta name="description" content="招聘,培训">
+<meta name="format-detection" content="telephone=no"><!-- 禁止IPHONE识别手机号码 -->
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta name="renderer" content="webkit" />
+
+<title>js代码（www.jsdaima.com）- IT资源下载平台</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+
+<!-- public_css -->
+<link rel="stylesheet" type="text/css" href="../css/public/public_lib.css">
+
+<!-- zy_public_css -->
+<link rel="stylesheet" type="text/css" href="../css/zy_public.css">
+<!-- 子页css -->
+<link rel="stylesheet" type="text/css" href="../css/children.css">
+
+<!-- js -->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+
+</head>
+<body>
+
+<!-- 内容框 -->
+<div class="zy_module-content">
+	<!-- 消息 -->
+	<div class="zy_content zy_vipbox">
+		<div class="vip_head mb6">
+			<div class="head pt5">
+				<i><img src="../images/common_img/woman.png"></i>
+				<span>普通人才</span>
+				<h2>李丽丽</h2>
+				<!-- 是否找工作 -->
+				<div class="state rel"><em class="on">正找工作</em><em>不找工作</em><b></b></div>
+				<script type="text/javascript">
+					$(function(){
+						$(".state em").mousedown(function(){
+							var n=$(this).index()*$(".state b").width();
+							$(this).addClass("on");
+							$(this).siblings().removeClass("on");
+							$(".state b").stop().animate({left:n},150)
+						})
+					})
+				</script>
+			</div>
+			<div class="exit">退出</div>
+		</div>
+		<div class="vip_menu">
+			<ul class="mb6">
+				<li>
+					<a href="user_info.html">
+						<img src="../images/common_img/vip_icon_01.png">
+						<span>资料设置</span>
+					</a>
+				</li>
+				<li>
+					<a href="user_mypart.html">
+						<img src="../images/common_img/vip_icon_02_1.png">
+						<span>我的合伙信息</span>
+					</a>
+				</li>
+				<li>
+					<a href="user_myresume.html">
+						<img src="../images/common_img/vip_icon_02.png">
+						<span>我的简历</span>
+					</a>
+				</li>
+				<li>
+					<a href="user_myrecord.html">
+						<img src="../images/common_img/vip_icon_03.png">
+						<span>我的申请记录</span>
+					</a>
+				</li>
+				<li>
+					<a href="user_msyq.html">
+						<img src="../images/common_img/vip_icon_04.png">
+						<span>收到的面试邀请</span>
+						<em class="n r gr">12</em>
+					</a>
+				</li>
+				<li>
+					<a href="user_mytrain.html">
+						<img src="../images/common_img/vip_icon_05.png">
+						<span>我的培训</span>
+					</a>
+				</li>
+				<li>
+					<a href="user_mysc.html">
+						<img src="../images/common_img/vip_icon_06.png">
+						<span>我的收藏</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="../web_company/school.html">
+						<img src="../images/common_img/vip_icon_07.png">
+						<span>我的人才库</span>
+						<em class="n r g9">需开通入驻</em>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- 返回顶部 -->
+	<div class="go_top">
+		<a class="btn_top"></a>
+	</div>
+	
+	<!-- 底部 -->
+	<div class="footer_box">
+		<div class="footer">
+			<h2>
+				<a>李丽丽</a><!-- 
+			 --><a href="../web_ruzhu/apply_index.html">同行入驻</a>
+			</h2>
+			<h3>
+				<span><a href="../web_other/about.html">关于我们</a></span>
+				<span><a href="../web_other/about.html">求职指南</a></span>
+				<span><a href="../web_other/about.html">联系我们</a></span>
+				<span><a href="../web_other/about.html">免责声明</a></span>
+			</h3>
+			<div class="txt">
+				<p>&copy; 2019 XX公司&nbsp;&nbsp;ICP备XXXXXXXX号<br/>技术支持：<a href="http://www.jsdaima.com/" title="js代码" target="_blank">js代码（www.jsdaima.com）</a></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 底部导航 -->
+	<div class="foot_menu">
+		<ul>
+			<li>
+				<a href="../web_person/index.html">
+					<i><img src="../images/menu_icon01.png"></i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="../web_person/work.html">
+					<i><img src="../images/person_img/menu_icon02_01.png"></i>
+					<span>工作</span>
+				</a>
+			</li>
+			<li class="info">
+				<a href="../web_person/msg.html">
+					<i><img src="../images/menu_icon03.png"></i>
+					<span>消息</span>
+					<em></em>
+				</a>
+			</li>
+			<li class="cur">
+				<a href="../web_person/user.html">
+					<i><img src="../images/menu_icon04_r.png"></i>
+					<span>我的</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="招聘" http-equiv="keywords">
+<meta name="description" content="招聘,培训">
+<meta name="format-detection" content="telephone=no"><!-- 禁止IPHONE识别手机号码 -->
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta name="renderer" content="webkit" />
+
+<title>js代码（www.jsdaima.com）- IT资源下载平台</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+
+<!-- public_css -->
+<link rel="stylesheet" type="text/css" href="../css/public/public_lib.css">
+
+<!-- zy_public_css -->
+<link rel="stylesheet" type="text/css" href="../css/zy_public.css">
+<!-- 子页css -->
+<link rel="stylesheet" type="text/css" href="../css/children.css">
+
+<!-- js -->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+
+</head>
+<body>
+<header class="zy_search_top_box scroll_fix">
+	<div class="zy_title_top fix">
+		<div class="one" href="javascript:" onclick="history.back();"><img src="../images/back_jt.png"><span>返回</span></div>
+		<h1>人才详情</h1>
+		<div class="r">
+	    	<a href="../web_company/user.html"><img src="../images/menu_icon04.png"></a>
+	    </div>
+	</div>
+</header>	
+
+<!-- 占位框 -->
+<div class="top_zhanwei_box"></div>		
+
+<!-- 内容框 -->
+<div class="zy_module-content">
+	<!-- 工作详情 -->
+	<div class="zy_content zy_partner_xq">
+		<div class="bgwh mb6 p_2">
+			<div class="my_head fix">
+				<div class="pic l"><img src="../images/common_img/woman.png"></div>
+				<dl class="r">
+					<dt><span>千月</span><a href="../web_company/school.html">（甲辰阳光职业培训学校）</a></dt>
+					<dd class="fix">
+						<span class="l"><em>女</em><em>26岁</em><em>本科</em></span>
+						<span class="r"><em>2019-04-08</em><em>浏览量：9999+</em></span>
+					</dd>
+				</dl>
+			</div>
+			<div class="work_info other_info">
+				<div><span>工作经验：</span><p>3-5年</p></div>
+				<div><span>期望月薪：</span><p>3000~5000元</p></div>
+				<div><span>工作地点：</span><p>观山湖</p></div>
+				<div><span>求职意向：</span><p>园艺设计/园林规划</p></div>
+			</div>	
+		</div>
+
+		<!-- 工作经历 -->
+		<div class="work_zhize bgwh mb6 p_2">
+			<h4><span class="ge04">工作经历</span></h4>
+			<div class="txt">
+				<p>2018.03-2019.02</p>
+				<p>贵州园艺之家有限公司，负责公司园林规划项目设计</p>
+			</div>
+		</div>
+		<div class="work_zhize bgwh mb6 p_2">
+			<h4><span class="ge04">教育经历</span></h4>
+			<div class="txt">
+				<p>2015-2019年<br/>毕业于贵州师范大学园艺学院园林设计专业</p>
+			</div>
+		</div>
+		<div class="work_zhize bgwh mb6 p_2">
+			<h4><span class="ge04">专业技能</span></h4>
+			<div class="txt">
+				<p>熟练使用CAD绘图设计</p>
+				<p>熟练使用Photoshop</p>
+				<p>熟练使用其他各种专业设计软件</p>
+			</div>
+		</div>
+		<div class="work_zhize bgwh mb6 p_2">
+			<h4><span class="ge04">自我描述</span></h4>
+			<div class="txt">
+				<p>工作踏实认真，勤奋努力，富有朝气，每天都充满了工作的力量，为梦想和事业努力拼搏。</p>
+			</div>
+		</div>
+
+		<!-- 详情底部栏 -->
+		<div class="xq_foot dis_flex">
+			<a onclick="img_hs(this)" is_show="true"><img src="../images/common_img/zy_icon_sc.png"><span>收藏</span></a>
+			<a href="tel:18888899888"><img src="../images/common_img/zy_icon_tel.png"><span>电话</span></a>
+			<div class="apply">邀请面试</div>
+		</div>
+		<script type="text/javascript">
+			function img_hs(obj){
+				var mr='../images/common_img/zy_icon_sc.png';
+				var sh='../images/common_img/zy_icon_sc01.png';
+				var bool=$(obj).attr("is_show");
+				if (bool=="true") {
+					$(obj).find("img").attr("src",sh);
+					$(obj).attr("is_show",'false');
+					$(obj).find("span").css("color","#f2b300").text("已收藏")
+				}else{
+					$(obj).find("img").attr("src",mr);
+					$(obj).attr("is_show",'true');
+					$(obj).find("span").css("color","#333").text("收藏")
+				}				
+			}
+		</script>
+		<!-- 邀请面试box -->
+	    <div class="resume_box interview_box">
+	    	<div class="resume">
+	    		<h2>邀请：<b class="g3">圆圆</b></h2>
+	    		<span class="close">×</span>
+	    		<div>
+	    			<textarea placeholder="请输入邀请内容"></textarea>
+	    		</div>
+	    		<button class="zy_butn">发送邀请</button>
+	    	</div>
+	    	<script type="text/javascript">
+	    		$(function(){
+	    			$(".apply").mousedown(function(){
+	    				$(".resume_box").show()
+	    			})
+	    			$(".close").mousedown(function(){
+	    				$(".resume_box").hide();
+	    			})
+	    		})
+	    	</script>
+	    </div>
+		
+	</div>
+	
+	<!-- 返回顶部 -->
+	<div class="go_top">
+		<a class="btn_top"></a>
+	</div>
+	
+	<!-- 底部 -->
+	<div class="footer_box">
+		<div class="footer">
+			<h2>
+				<a>圆圆</a><!-- 
+			 --><a href="../web_ruzhu/apply_index.html">同行入驻</a>
+			</h2>
+			<h3>
+				<span><a href="../web_other/about.html">关于我们</a></span>
+				<span><a href="../web_other/about.html">求职指南</a></span>
+				<span><a href="../web_other/about.html">联系我们</a></span>
+				<span><a href="../web_other/about.html">免责声明</a></span>
+			</h3>
+			<div class="txt">
+				<p>&copy; 2019 XX公司&nbsp;&nbsp;ICP备XXXXXXXX号<br/>技术支持：<a href="http://www.jsdaima.com/" title="js代码" target="_blank">js代码（www.jsdaima.com）</a></p>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+</body>
+</html>

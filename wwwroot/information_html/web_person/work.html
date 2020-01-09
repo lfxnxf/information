@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="招聘" http-equiv="keywords">
+<meta name="description" content="招聘,培训">
+<meta name="format-detection" content="telephone=no"><!-- 禁止IPHONE识别手机号码 -->
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta name="renderer" content="webkit" />
+
+<title>js代码（www.jsdaima.com）- IT资源下载平台</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+
+<!-- public_css -->
+<link rel="stylesheet" type="text/css" href="../css/public/public_lib.css">
+
+<!-- zy_public_css -->
+<link rel="stylesheet" type="text/css" href="../css/zy_public.css">
+<!-- 子页css -->
+<link rel="stylesheet" type="text/css" href="../css/children.css">
+
+<!-- js -->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+
+</head>
+<body>
+<header class="zy_search_top_box">
+	<div class="zy_search_top fix">
+		<div class="one"><img src="../images/logo.png"></div><!-- 注释去间隙
+ 间隙--><div class="box">
+			<span><img src="../images/icon_search.png"></span>
+		    <input type="text" placeholder="请输入关键词搜索" value="">
+	    </div><!-- 注释去间隙
+ 间隙--><div class="r">
+	    	<img src="../images/pin.png"><a href="../web_other/weizhi.html"><span>贵阳</span></a>
+	    </div>
+	</div>
+</header>		
+
+<!-- 内容框 -->
+<div class="zy_module-content">
+	<!-- 找工作 -->
+	<div class="zy_content zy_find_work">
+		<!-- 类别筛选 -->
+		<div class="zy_category_box mb6">
+			<div class="zy_black_bg"></div>
+			<div class="zy_category bgwh dis_flex">
+				<div class="xz_work brd pct25"><span>全部工作</span></div>
+				<div class="xz_money brd pct25"><span>薪资</span></div>
+				<div class="xz_fuli brd pct25"><span>福利</span></div>
+				<div class="xz_rank pct25"><span>智能排序</span></div>
+			</div>
+			<div class="zy_category_list">
+				<div class="box workbox fix">
+					<ul>
+						<li class="work" is_click="no">全部工作</li>
+						<li class="work" is_click="yes">销售</li>
+						<li class="work" is_click="yes">技工/工人</li>
+						<li class="work" is_click="yes">计算机/互联网</li>
+						<li class="work" is_click="yes">电子商务</li>
+						<li class="work" is_click="yes">园艺设计</li>
+					</ul>
+					<ul>
+						<li>
+							<span class="work">全部</span>
+							<span class="work">电话销售</span>
+							<span class="work">销售代表</span>
+							<span class="work">销售助理</span>
+							<span class="work">销售主管/经理</span>
+							<span class="work">商务主管/经理</span>
+							<span class="work">商务主管/经理</span>
+							<span class="work">商务主管/经理</span>
+						</li>
+					</ul>
+				</div>
+				<div class="box">
+					<ul>
+						<li class="money">不限</li>
+						<li class="money">面议</li>
+						<li class="money">1000~2000元</li>
+						<li class="money">2000~3000元</li>
+						<li class="money">3000~5000元</li>
+						<li class="money">5000~8000元</li>
+						<li class="money">8000~12000元</li>
+						<li class="money">12000~15000元</li>
+						<li class="money">15000~20000元</li>
+						<li class="money">20000元以上</li>
+					</ul>
+				</div>
+				<div class="box">
+					<ul>
+						<li class="fuli">不限</li>
+						<li class="fuli">五险一金</li>
+						<li class="fuli">周末双休</li>
+						<li class="fuli">包吃住</li>
+						<li class="fuli">带薪年假</li>
+						<li class="fuli">加班补助</li>
+						<li class="fuli">年底双薪</li>
+					</ul>
+				</div>
+				<div class="box">
+					<ul>
+						<li class="rank">最新发布</li>
+						<li class="rank">热门职位</li>
+					</ul>
+				</div>
+			
+			</div>
+			<!-- 类别js -->
+			<script type="text/javascript">
+				$(function(){
+					// 不同条件选择切换选择
+					$(".zy_category div").mousedown(function(){
+						var m=$(this).index();
+						if ($(this).hasClass("cur")) {
+							$(this).removeClass("cur");
+							$(".zy_black_bg").hide();
+						}else{
+							$(this).addClass("cur");
+							$(this).siblings().removeClass("cur");
+							$(".zy_black_bg").show();
+						}
+						
+						$(".zy_category_list .box").eq(m).toggle();
+						$(".zy_category_list .box").eq(m).siblings().hide();
+
+						//后面这两段放在这里才能点击后获取到显示的高度 
+						var work_H=$(".zy_category_list .workbox ul:first-child").height();
+						work_UL2.css("height",work_H);
+					})
+					//点击背景隐藏
+					$(".zy_black_bg").mousedown(function(){
+						$(this).hide();
+						$(".zy_category_list .box").hide();
+						$(".zy_category>div").removeClass("cur");
+					})
+
+					// 工作类型选择
+					var work_UL1=$(".zy_category_list .workbox ul:first-child");
+					var work_UL2=$(".zy_category_list .workbox ul:last-child");
+					work_UL1.find("li").mousedown(
+						function(){
+							var ks=$(this).attr("is_click");
+							if (ks=="yes") {
+								work_UL1.animate({width:"25%"},300)
+								work_UL2.find("li").show();
+							}
+							$(this).css("color","#f2b300");
+							$(this).siblings().css("color","#333");
+						}
+					)
+
+					//滑动页面后类别筛选浮动固定在顶部
+					var h1=$(".zy_search_top_box").height();
+					var h2=$(".zy_category_box").innerHeight();
+
+					$(window).scroll(function(){
+						var s = $(document).scrollTop();
+						if (s>h1) {
+							$(".zy_category_box").addClass('scroll_fix');
+							$(".zy_category_box").css("position","fixed");
+							$(".zy_find_work").css("padding-top",h2);
+						}else{
+							$(".zy_category_box").removeClass('scroll_fix');
+							$(".zy_category_box").css("position","relative");
+							$(".zy_find_work").css("padding-top",0);
+						}
+					});
+				})
+			</script>
+		</div>
+		<!-- 类别筛选 end-->
+
+		<div class="tuij_gz">
+	    	<ul>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">招聘食堂高级营养师</h2>
+	    					<span class="r">今天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em><em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区花果园第三小学</p>
+	    					<span class="r">浏览次数：9999+</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高薪招聘贵阳南明育婴师</h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">5000~8000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区喜宝宝专业护育</p>
+	    					<span class="r">浏览次数：992</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高级土方建筑工</h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳花溪城市建设工程有限责任公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">观山湖高新区招聘大数据呼叫员</h2>
+	    					<span class="r">03-31</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">3000~5000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>餐补</em><em>加班补助</em><em>五险</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">观山湖呼叫外包服务有限公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">招聘食堂高级营养师</h2>
+	    					<span class="r">今天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em><em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区花果园第三小学</p>
+	    					<span class="r">浏览次数：9999+</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高薪招聘贵阳南明育婴师</h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">5000~8000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区喜宝宝专业护育</p>
+	    					<span class="r">浏览次数：992</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高级土方建筑工</h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳花溪城市建设工程有限责任公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">观山湖高新区招聘大数据呼叫员</h2>
+	    					<span class="r">03-31</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">3000~5000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>餐补</em><em>加班补助</em><em>五险</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">观山湖呼叫外包服务有限公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">招聘食堂高级营养师</h2>
+	    					<span class="r">今天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em><em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区花果园第三小学</p>
+	    					<span class="r">浏览次数：9999+</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高薪招聘贵阳南明育婴师</h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">5000~8000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区喜宝宝专业护育</p>
+	    					<span class="r">浏览次数：992</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高级土方建筑工</h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳花溪城市建设工程有限责任公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">观山湖高新区招聘大数据呼叫员</h2>
+	    					<span class="r">03-31</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">3000~5000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>餐补</em><em>加班补助</em><em>五险</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">观山湖呼叫外包服务有限公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">招聘食堂高级营养师</h2>
+	    					<span class="r">今天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em><em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区花果园第三小学</p>
+	    					<span class="r">浏览次数：9999+</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高薪招聘贵阳南明育婴师</h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">5000~8000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区喜宝宝专业护育</p>
+	    					<span class="r">浏览次数：992</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高级土方建筑工</h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳花溪城市建设工程有限责任公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">观山湖高新区招聘大数据呼叫员</h2>
+	    					<span class="r">03-31</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">3000~5000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>餐补</em><em>加班补助</em><em>五险</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">观山湖呼叫外包服务有限公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">招聘食堂高级营养师</h2>
+	    					<span class="r">今天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em><em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区花果园第三小学</p>
+	    					<span class="r">浏览次数：9999+</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高薪招聘贵阳南明育婴师</h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">5000~8000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳市南明区喜宝宝专业护育</p>
+	    					<span class="r">浏览次数：992</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">高级土方建筑工</h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">面议</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>包吃住</em><em>餐补</em><em>加班补助</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">贵阳花溪城市建设工程有限责任公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>
+	    		<li>
+	    			<a href="work_xq.html">
+	    				<div class="job_tit fix">
+	    					<h2 class="l pct80">观山湖高新区招聘大数据呼叫员</h2>
+	    					<span class="r">03-31</span>
+	    				</div>
+	    				<div class="job_money">
+	    					<span>待遇：<em class="gr n">3000~5000元</em></span>
+	    				</div>
+	    				<div class="job_fuli fix rel">
+	    					<p class="l pct70">
+	    						<em>餐补</em><em>加班补助</em><em>五险</em>
+	    					</p>
+	    				</div>
+	    				<div class="job_fuli fix job_who">
+	    					<p class="l pct66">观山湖呼叫外包服务有限公司</p>
+	    					<span class="r">浏览次数：368</span>
+	    				</div>
+	    			</a>
+	    			<a class="apply abs">申请职位</a>
+	    		</li>	    		
+	    	</ul>	    	
+	    </div>
+	    <!-- 选择简历投递 -->
+	    <div class="resume_box">
+	    	<div class="resume">
+	    		<h2>申请职位</h2>
+	    		<span class="close">×</span>
+	    		<div>
+	    			<label><input type="radio" name="resume" checked="checked"><span>求职 呼叫中心客服</span></label>
+	    			<label><input type="radio" name="resume"><span>求职 行政人事</span></label>
+	    		</div>
+	    		<button class="zy_butn">发送简历</button>
+	    	</div>
+	    	<script type="text/javascript">
+	    		$(function(){
+	    			$(".apply").mousedown(function(){
+	    				$(".resume_box").show()
+	    			})
+	    			$(".close").mousedown(function(){
+	    				$(".resume_box").hide();
+	    			})
+	    		})
+	    	</script>
+	    </div>
+	    <!-- 热门职位 -->
+	    <div class="hot_work bgwh">
+	    	<div class="title hot_tit">
+	    		<h2><span>热门职位</span></h2>
+	    	</div>
+	    	<ul>
+	    		<li><a href="work.html">公共营养师</a></li>
+	    		<li><a href="work.html">育婴师</a></li>
+	    		<li><a href="work.html">养老护理师</a></li>
+	    		<li><a href="work.html">茶艺师</a></li>
+	    		<li><a href="work.html">插花师</a></li>
+	    		<li><a href="work.html">园林绿化工程师</a></li>
+	    		<li><a href="work.html">建筑工人</a></li>
+	    		<li><a href="work.html">高级早教师</a></li>
+	    		<li><a href="work.html">装饰设计师</a></li>
+	    		<li><a href="work.html">导购员</a></li>
+	    		<li><a href="work.html">促销员</a></li>
+	    		<li><a href="work.html">电子商务师</a></li>
+	    	</ul>
+	    </div>
+	    <!-- 翻页 -->
+	    <div class="zy_fanye dis_flex">
+			<a href="#">上一页</a>
+			<span>
+				<b><em>1</em>/<i>2</i></b>
+				<select>
+					<option>第1页</option>
+					<option>第2页</option>
+				</select>
+			</span>
+			<a href="#">下一页</a>
+		</div>
+
+	</div>
+	
+	<!-- 返回顶部 -->
+	<div class="go_top">
+		<a class="btn_top"></a>
+	</div>
+	
+	<!-- 底部 -->
+	<div class="footer_box">
+		<div class="footer">
+			<h2>
+				<a href="../web_login/login.html">登录</a><!-- 
+			 --><a href="../web_login/register.html">注册</a><!-- 
+			 --><a href="../web_ruzhu/apply_index.html">同行入驻</a>
+			</h2>
+			<h3>
+				<span><a href="../web_other/about.html">关于我们</a></span>
+				<span><a href="../web_other/about.html">求职指南</a></span>
+				<span><a href="../web_other/about.html">联系我们</a></span>
+				<span><a href="../web_other/about.html">免责声明</a></span>
+			</h3>
+			<div class="txt">
+				<p>&copy; 2019 XX公司&nbsp;&nbsp;ICP备XXXXXXXX号<br/>技术支持：<a href="http://www.jsdaima.com/" title="js代码" target="_blank">js代码（www.jsdaima.com）</a></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 底部导航 -->
+	<div class="foot_menu">
+		<ul>
+			<li>
+				<a href="../web_person/index.html">
+					<i><img src="../images/menu_icon01.png"></i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li class="cur">
+				<a href="../web_person/work.html">
+					<i><img src="../images/person_img/menu_icon02_01_r.png"></i>
+					<span>工作</span>
+				</a>
+			</li>
+			<li class="info">
+				<a href="../web_person/msg.html">
+					<i><img src="../images/menu_icon03.png"></i>
+					<span>消息</span>
+					<em></em>
+				</a>
+			</li>
+			<li>
+				<a href="../web_person/user.html">
+					<i><img src="../images/menu_icon04.png"></i>
+					<span>我的</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+
+<!-- 搜索框 -->
+<div class="search_bomb_box">
+	<div class="search_top fix">
+		<a><img src="../images/back_jt.png"><span>返回</span></a>
+		<div>
+			<form>
+			    <input type="text" name="" placeholder="请输入关键词搜索"><!-- 
+			 --><button type="submit"><img src="../images/icon_search.png"></button>
+			</form>
+		</div>
+	</div>
+	<div class="search_txt">
+		<h2>大家都在搜</h2>
+		<ul>
+			<li><a href="work.html">公告营养师</a></li>
+			<li><a href="work.html">园艺设计</a></li>
+			<li><a href="work.html">建筑设计</a></li>
+			<li><a href="work.html">育婴师</a></li>
+			<li><a href="work.html">养护师</a></li>
+			<li><a href="work.html">平面设计</a></li>
+			<li><a href="work.html">web工程师</a></li>
+			<li><a href="work.html">学前教育</a></li>
+			<li><a href="work.html">环保工程师</a></li>
+			<li><a href="work.html">母婴护理师</a></li>
+			<li><a href="work.html">保育员</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$(".zy_search_top .box").mousedown(
+			function(){
+				$(".search_bomb_box").show()
+				$(".zy_search_top_box").hide()			
+				$(".zy_module-content").hide()
+			}
+		)
+		$(".search_bomb_box .search_top>a").mousedown(
+			function(){
+				$(".search_bomb_box").hide()
+				$(".zy_search_top_box").show()		
+				$(".zy_module-content").show()
+			}
+		)
+	})
+</script>
+
+</body>
+</html>

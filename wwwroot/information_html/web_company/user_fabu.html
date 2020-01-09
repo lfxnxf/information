@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="招聘" http-equiv="keywords">
+<meta name="description" content="招聘,培训">
+<meta name="format-detection" content="telephone=no"><!-- 禁止IPHONE识别手机号码 -->
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta name="renderer" content="webkit" />
+
+<title>js代码（www.jsdaima.com）- IT资源下载平台</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+
+<!-- public_css -->
+<link rel="stylesheet" type="text/css" href="../css/public/public_lib.css">
+
+<!-- zy_public_css -->
+<link rel="stylesheet" type="text/css" href="../css/zy_public.css">
+<!-- 子页css -->
+<link rel="stylesheet" type="text/css" href="../css/children.css">
+
+<!-- js -->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+
+</head>
+<body>
+<header class="zy_search_top_box scroll_fix">
+	<div class="zy_title_top fix">
+		<div class="one" href="javascript:" onclick="history.back();"><img src="../images/back_jt.png"><span>返回</span></div>
+		<h1>发布招聘/项目</h1>
+		
+	</div>
+</header>	
+
+<!-- 占位框 -->
+<div class="top_zhanwei_box"></div>	
+
+<!-- 内容框 -->
+<div class="zy_module-content zy_vip_conbox">
+	<div class="zy_vip_scbox zy_vip_myfabu bgwh">
+		<div class="tit">
+			<div class="dis_flex rel">
+				<span class="pct50 cur">发布职位招聘</span>
+				<span class="pct50">发布创业项目</span>
+				<i class="sc_line pct50"></i>
+			</div>
+		</div>
+		<div class="sc_list vip_user_info_mima vip_user_createbox">
+			<!-- 发布职位招聘 -->
+			<div class="list">
+				<form>
+					<div class="write">
+						<div class="form_line">
+							<label><span>招聘标题</span><input type="text" name="" placeholder="请输入招聘标题"></label>
+						</div>
+						<div class="form_line bbd xzbox work_style">
+							<span>职位名称</span>
+							<select>
+								<option>请选择职位类型</option>
+								<option>销售</option>
+								<option>技工/工人</option>
+								<option>计算机/互联网</option>
+								<option>电子商务</option>
+								<option>园林设计</option>
+							</select>
+							<select>
+								<option>请选择职位</option>
+								<option>电话销售</option>
+								<option>销售代表</option>
+								<option>销售助理</option>
+								<option>销售主管/经理</option>
+								<option>商务主管/经理</option>
+							</select>
+						</div>
+						<div class="form_line bbd xzbox">
+							<span>薪资待遇</span>
+							<select>
+								<option>请选择薪资</option>
+								<option>1000以下</option>
+								<option>1000~2000元</option>
+								<option>2000~3000元</option>
+								<option>3000~5000元</option>
+								<option>5000~8000元</option>
+								<option>8000~12000元</option>
+								<option>12000~15000元</option>
+								<option>15000~20000元</option>
+								<option>20000以上</option>
+							</select>
+						</div>
+						<div class="form_line">
+							<label><span>招聘人数</span><input type="text" name="" placeholder="请输入招聘人数"></label>
+						</div>
+						<div class="form_line bbd xzbox">
+							<span>学历要求</span>
+							<select>
+								<option>请选择学历</option>
+								<option>硕士及以上</option>
+								<option>本科</option>
+								<option>大专</option>
+								<option>中专/技校</option>
+								<option>高中</option>
+								<option>初中及以下</option>
+							</select>
+						</div>
+						
+						<div class="form_line bbd xzbox">
+							<span>经验要求</span>
+							<select>
+								<option>请选择工作经验</option>
+								<option>经验不限</option>
+								<option>1-3年</option>
+								<option>3-5年</option>
+								<option>5-8年</option>
+								<option>8-10年</option>
+								<option>10年以上</option>
+							</select>
+						</div>
+						<div class="form_line">
+							<label><span>工作地址</span><input type="text" name="" placeholder="请输入工作地址"></label>
+						</div>
+						<div class="form_line" id="tip">
+							<label>
+								<span>福利待遇</span>
+								<ul>
+									<li>加班补助</li>
+									<li>年底双薪</li>
+									<li>包吃住</li>
+									<li>餐补</li>
+									<li>话补</li>
+									<li>住房补贴</li>
+									<li>带薪年假</li>
+									<li>五险</li>
+									<li>五险一金</li>
+									<li>员工旅游</li>
+									<li>弹性工作</li>
+									<li>周末双休</li>
+								</ul>
+							</label>
+							<script type="text/javascript">
+								$(function(){
+									$("#tip ul li").mousedown(function(){
+										if ($(this).hasClass("cur")) {
+											$(this).removeClass("cur");
+										}else{
+											$(this).addClass("cur");
+										}
+									})
+								})
+							</script>
+						</div>
+						<div class="form_line">
+							<label><span>岗位职责</span><textarea placeholder="请输入工作内容及职位要求"></textarea></label>
+						</div>
+						<div class="form_line">
+							<label><span>联系人</span><input type="text" name="" placeholder="请输入联系人"></label>
+						</div>
+						<div class="form_line">
+							<label><span>联系电话</span><input type="text" name="" placeholder="请输入联系电话"></label>
+						</div>
+						<div class="form_line">
+							<label><span>企业名称</span><input type="text" name="" value="XX科技集团有限公司" readonly="true"></label>
+						</div>
+						<div class="form_line">
+							<label><span>企业介绍</span><textarea placeholder="请输入企业简介"></textarea></label>
+						</div>
+						<button class="zy_butn bord_3" type="submit">立即发布职位</button> 
+					</div>					
+				</form>
+			</div>
+			<!-- 发布项目-->
+			<div class="list item_fabu">
+				<form>
+					<div class="write">
+						<div class="form_line">
+							<label><span>项目名称</span><input type="text" name="" placeholder="请输入项目名称"></label>
+						</div>
+						<div class="form_line">
+							<label><span>项目主体</span><input type="text" name="" placeholder="请输入项目主体企业名称"></label>
+						</div>
+						<div class="form_line">
+							<label><span>项目资金</span><input type="text" name="" placeholder="请输入项目预算资金"></label>
+						</div>
+						<div class="form_line bbd xzbox work_style">
+							<span>项目类型</span>
+							<select>
+								<option>请选择项目类型</option>
+								<option>餐饮连锁</option>
+								<option>休闲娱乐</option>
+								<option>计算机/互联网</option>
+								<option>电子商务</option>
+								<option>民生工程</option>
+								<option>其他</option>
+							</select>
+							<select>
+								<option>请选择项目</option>
+								<option>连锁超市</option>
+								<option>餐饮食品</option>
+								<option>餐饮连锁</option>
+								<option>食品安全</option>
+								<option>其他</option>
+							</select>
+						</div>
+						<div class="form_line">
+							<label><span>项目地址</span><input type="text" name="" placeholder="请输入项目地址"></label>
+						</div>
+						<div class="form_line">
+							<label><span>企业介绍</span><textarea placeholder="请填写企业简介"></textarea></label>
+						</div>
+						<div class="form_line">
+							<label><span>项目介绍</span><textarea placeholder="请填写项目介绍"></textarea></label>
+						</div>
+						<div class="form_line">
+							<label><span>项目优势</span><textarea placeholder="请填写项目优势"></textarea></label>
+						</div>
+						<!-- 前面几个是默认显示的，添加其他栏目介绍 -->
+						<div class="add_column">
+							<div class="zy_butn bord_3" id="add">＋添加其他栏目</div>
+							<!-- 邀请面试box -->
+						    <div class="resume_box interview_box">
+						    	<div class="resume">
+						    		<h2>添加栏目</h2>
+						    		<span class="close">×</span>
+						    		<div>
+						    			<input type="text" name="" placeholder="请输入栏目名称（最多4个字）">
+						    		</div>
+						    		<div>
+						    			<textarea placeholder="请输入栏目介绍（不超过300字）"></textarea>
+						    		</div>
+						    		<button class="zy_butn">确定添加</button>
+						    	</div>
+						    	<script type="text/javascript">
+						    		$(function(){
+						    			$("#add").mousedown(function(){
+						    				$(".resume_box").show()
+						    			})
+						    			$(".close").mousedown(function(){
+						    				$(".resume_box").hide();
+						    			})
+						    		})
+						    	</script>
+						    </div>
+						</div>
+						<button class="zy_butn bord_3" type="submit">立即发布项目</button> 
+					</div>					
+				</form>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$(".sc_list .list").hide().first().show();
+				$(".zy_vip_scbox .tit span").mousedown(function(){
+					var n=$(this).index();
+					var m=$(".sc_line").width();
+					$(".sc_line").stop().animate({left:m*n},300);
+					$(this).addClass("cur");
+					$(this).siblings().removeClass("cur");
+					$(".sc_list .list").hide().eq(n).show();
+				})
+			})
+		</script>
+	</div>
+
+</div>
+
+</body>
+</html>

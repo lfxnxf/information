@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="招聘" http-equiv="keywords">
+<meta name="description" content="招聘,培训">
+<meta name="format-detection" content="telephone=no"><!-- 禁止IPHONE识别手机号码 -->
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta name="renderer" content="webkit" />
+
+<title>js代码（www.jsdaima.com）- IT资源下载平台</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+
+<!-- public_css -->
+<link rel="stylesheet" type="text/css" href="../css/public/public_lib.css">
+
+<!-- zy_public_css -->
+<link rel="stylesheet" type="text/css" href="../css/zy_public.css">
+<!-- 子页css -->
+<link rel="stylesheet" type="text/css" href="../css/children.css">
+
+<!-- js -->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../js/swiper.min.js"></script>
+<script type="text/javascript" src="../js/public.js"></script>
+
+</head>
+<body>
+<header class="zy_search_top_box">
+	<div class="search_top fix">
+		<a href="javascript:" onclick="history.back();"><img src="../images/back_jt.png"><span>返回</span></a>
+		<div>
+			<form>
+			    <input type="text" name="" placeholder="搜索本机构人才"><!-- 
+			 --><button type="submit"><img src="../images/icon_search.png"></button>
+			</form>
+		</div>
+	</div>
+</header>	
+
+<!-- 内容框 -->
+<div class="zy_module-content">
+	<!-- 消息 -->
+	<div class="zy_content zy_find_work">
+		<!-- 机构bg -->
+		<div class="shool_name">
+			<img src="../images/common_img/jg_bg.jpg" />
+			<div class="shool abs">
+				<div class="jg_logo"><img src="../images/common_img/jg_logo.jpg" /></div>
+				<dl>
+					<dt>甲辰阳光职业培训学校</dt>
+					<dd><a href="school_xq.html">机构简介</a></dd>
+				</dl>
+				<div class="sc abs">收藏</div>
+			</div>
+			<script type="text/javascript">
+				$(function(){
+					var n=0;
+					$(".shool .sc").mousedown(function(){
+						if(n==0){
+							$(".shool .sc").text("已收藏")
+							n=1;
+						}else{
+							$(".shool .sc").text("收藏")
+							n=0;
+						}
+					})
+				})
+			</script>
+		</div>
+		<!-- 类别筛选 -->
+		<div class="zy_category_box mb6">
+			<div class="zy_black_bg"></div>
+			<div class="zy_category bgwh dis_flex">
+				<div class="xz_work brd pct50"><span>全部人才</span></div>
+				<div class="xz_rank pct50"><span>智能排序</span></div>
+			</div>
+			<div class="zy_category_list">
+				<div class="box workbox fix">
+					<ul>
+						<li class="work" is_click="no">全部人才</li>
+						<li class="work" is_click="yes">销售</li>
+						<li class="work" is_click="yes">技工/工人</li>
+						<li class="work" is_click="yes">计算机/互联网</li>
+						<li class="work" is_click="yes">电子商务</li>
+						<li class="work" is_click="yes">园艺设计</li>
+					</ul>
+					<ul>
+						<li>
+							<span class="work">全部</span>
+							<span class="work">电话销售</span>
+							<span class="work">销售代表</span>
+							<span class="work">销售助理</span>
+							<span class="work">销售主管/经理</span>
+							<span class="work">商务主管/经理</span>
+							<span class="work">商务主管/经理</span>
+							<span class="work">商务主管/经理</span>
+						</li>
+					</ul>
+				</div>
+				<div class="box">
+					<ul>
+						<li class="rank">最新发布</li>
+						<li class="rank">热门职位</li>
+					</ul>
+				</div>
+			
+			</div>
+			<!-- 类别js -->
+			<script type="text/javascript">
+				$(function(){
+					// 不同条件选择切换选择
+					$(".zy_category div").mousedown(function(){
+						var m=$(this).index();
+						if ($(this).hasClass("cur")) {
+							$(this).removeClass("cur");
+							$(".zy_black_bg").hide();
+						}else{
+							$(this).addClass("cur");
+							$(this).siblings().removeClass("cur");
+							$(".zy_black_bg").show();
+						}
+						
+						$(".zy_category_list .box").eq(m).toggle();
+						$(".zy_category_list .box").eq(m).siblings().hide();
+
+						//后面这两段放在这里才能点击后获取到显示的高度 
+						var work_H=$(".zy_category_list .workbox ul:first-child").height();
+						work_UL2.css("height",work_H);
+					})
+					//点击背景隐藏
+					$(".zy_black_bg").mousedown(function(){
+						$(this).hide();
+						$(".zy_category_list .box").hide();
+						$(".zy_category>div").removeClass("cur");
+					})
+
+					// 工作类型选择
+					var work_UL1=$(".zy_category_list .workbox ul:first-child");
+					var work_UL2=$(".zy_category_list .workbox ul:last-child");
+					work_UL1.find("li").mousedown(
+						function(){
+							var ks=$(this).attr("is_click");
+							if (ks=="yes") {
+								work_UL1.animate({width:"25%"},300)
+								work_UL2.find("li").show();
+							}
+							$(this).css("color","#f2b300");
+							$(this).siblings().css("color","#333");
+						}
+					)
+
+					//滑动页面后类别筛选浮动固定在顶部
+					var h1=$(".zy_search_top_box").height();
+					var h2=$(".zy_category_box").innerHeight();
+					var h3=$(".shool_name>img").height();
+
+					$(window).scroll(function(){
+						var s = $(document).scrollTop();
+						if (s>(h1+h3)) {
+							$(".zy_category_box").addClass('scroll_fix');
+							$(".zy_category_box").css("position","fixed");
+							$(".zy_find_work").css("padding-top",h2);
+						}else{
+							$(".zy_category_box").removeClass('scroll_fix');
+							$(".zy_category_box").css("position","relative");
+							$(".zy_find_work").css("padding-top",0);
+						}
+					});
+				})
+			</script>
+		</div>
+		<!-- 类别筛选 end-->
+
+		<div class="tuij_box tuij_gz">
+	    	<ul>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>曾先平</b><b>男</b><b>32岁</b><b>求职</b><b>营养师</b></h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>大专</b><b>3-5年</b><b class="gr">5000~8000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：贵阳市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq01.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>李丽丽机构</b><b>女</b><b>24岁</b><b>求职</b><b>茶艺师</b></h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>高中</b><b>3-5年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：南明区</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>罗浮</b><b>男</b><b>22岁</b><b>求职</b><b>网络管理</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>2-3年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：花果园周边</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>潘仲达</b><b>女</b><b>25岁</b><b>求职</b><b>音乐幼教</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：观山湖</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>圆圆</b><b>女</b><b>26岁</b><b>求职</b><b>园艺设计</b></h2>
+	    					<span class="r">03-25</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：清镇市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>曾先平</b><b>男</b><b>32岁</b><b>求职</b><b>营养师</b></h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>大专</b><b>3-5年</b><b class="gr">5000~8000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：贵阳市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>李丽丽</b><b>女</b><b>24岁</b><b>求职</b><b>茶艺师</b></h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>高中</b><b>3-5年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：南明区</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>罗浮</b><b>男</b><b>22岁</b><b>求职</b><b>网络管理</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>2-3年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：花果园周边</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>潘仲达</b><b>女</b><b>25岁</b><b>求职</b><b>音乐幼教</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：观山湖</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>圆圆</b><b>女</b><b>26岁</b><b>求职</b><b>园艺设计</b></h2>
+	    					<span class="r">03-25</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：清镇市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>曾先平</b><b>男</b><b>32岁</b><b>求职</b><b>营养师</b></h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>大专</b><b>3-5年</b><b class="gr">5000~8000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：贵阳市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>李丽丽</b><b>女</b><b>24岁</b><b>求职</b><b>茶艺师</b></h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>高中</b><b>3-5年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：南明区</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>罗浮</b><b>男</b><b>22岁</b><b>求职</b><b>网络管理</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>2-3年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：花果园周边</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>潘仲达</b><b>女</b><b>25岁</b><b>求职</b><b>音乐幼教</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：观山湖</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>圆圆</b><b>女</b><b>26岁</b><b>求职</b><b>园艺设计</b></h2>
+	    					<span class="r">03-25</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：清镇市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>曾先平</b><b>男</b><b>32岁</b><b>求职</b><b>营养师</b></h2>
+	    					<span class="r">20小时前</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>大专</b><b>3-5年</b><b class="gr">5000~8000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：贵阳市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>李丽丽</b><b>女</b><b>24岁</b><b>求职</b><b>茶艺师</b></h2>
+	    					<span class="r">昨天</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>高中</b><b>3-5年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：南明区</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>罗浮</b><b>男</b><b>22岁</b><b>求职</b><b>网络管理</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>2-3年</b><b class="gr">面议</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：花果园周边</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>潘仲达</b><b>女</b><b>25岁</b><b>求职</b><b>音乐幼教</b></h2>
+	    					<span class="r">03-26</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：观山湖</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="rc_list_xq.html">
+	    				<div class="item_tit rc_tit fix">
+	    					<h2 class="l pct80"><b>圆圆</b><b>女</b><b>26岁</b><b>求职</b><b>园艺设计</b></h2>
+	    					<span class="r">03-25</span>
+	    				</div>
+	    				<div class="item_tit">
+	    					<h2><b>本科</b><b>3-5年</b><b class="gr">3000~5000元</b></h2>
+	    				</div>
+	    				<div class="item_tit fix">
+	    					<h2 class="l">期望工作地点：清镇市</h2>
+	    					<em class="r n">已认证</em>
+	    				</div>
+	    			</a>
+	    		</li>
+	    	</ul>
+	    </div>
+
+	    <!-- 热门职位 -->
+	    <div class="hot_work bgwh">
+	    	<div class="title hot_tit">
+	    		<h2><span>机构推荐</span></h2>
+	    	</div>
+	    	<ul>
+	    		<li><a href="work.html">公共营养师</a></li>
+	    		<li><a href="work.html">育婴师</a></li>
+	    		<li><a href="work.html">养老护理师</a></li>
+	    		<li><a href="work.html">茶艺师</a></li>
+	    		<li><a href="work.html">插花师</a></li>
+	    		<li><a href="work.html">园林绿化工程师</a></li>
+	    		<li><a href="work.html">建筑工人</a></li>
+	    		<li><a href="work.html">高级早教师</a></li>
+	    		<li><a href="work.html">装饰设计师</a></li>
+	    		<li><a href="work.html">导购员</a></li>
+	    		<li><a href="work.html">促销员</a></li>
+	    		<li><a href="work.html">电子商务师</a></li>
+	    	</ul>
+	    </div>
+	    <!-- 翻页 -->
+	    <div class="zy_fanye dis_flex">
+			<a href="#">上一页</a>
+			<span>
+				<b><em>1</em>/<i>2</i></b>
+				<select>
+					<option>第1页</option>
+					<option>第2页</option>
+				</select>
+			</span>
+			<a href="#">下一页</a>
+		</div>
+
+	</div>
+	
+	<!-- 返回顶部 -->
+	<div class="go_top">
+		<a class="btn_top"></a>
+	</div>
+	
+	<!-- 底部 -->
+	<div class="footer_box">
+		<div class="footer">
+			<h2>
+				<a href="../web_login/login.html">登录</a><!-- 
+			 --><a href="../web_login/register.html">注册</a><!-- 
+			 --><a href="../web_ruzhu/apply_index.html">同行入驻</a>
+			</h2>
+			<h3>
+				<span><a href="../web_other/about.html">关于我们</a></span>
+				<span><a href="../web_other/about.html">求职指南</a></span>
+				<span><a href="../web_other/about.html">联系我们</a></span>
+				<span><a href="../web_other/about.html">免责声明</a></span>
+			</h3>
+			<div class="txt">
+				<p>&copy; 2019 XX公司&nbsp;&nbsp;ICP备XXXXXXXX号<br/>技术支持：<a href="http://www.jsdaima.com/" title="js代码" target="_blank">js代码（www.jsdaima.com）</a></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- 底部导航 -->
+	<div class="foot_menu">
+		<ul>
+			<li>
+				<a href="../web_company/index.html">
+					<i><img src="../images/menu_icon01.png"></i>
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="../web_company/user_fabu.html">
+					<i><img src="../images/company_img/menu_icon02.png"></i>
+					<span>发布</span>
+				</a>
+			</li>
+			<li class="info">
+				<a href="../web_company/msg.html">
+					<i><img src="../images/menu_icon03.png"></i>
+					<span>消息</span>
+					<em></em>
+				</a>
+			</li>
+			<li>
+				<a href="../web_company/user.html">
+					<i><img src="../images/menu_icon04.png"></i>
+					<span>我的</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+</div>
+
+</body>
+</html>

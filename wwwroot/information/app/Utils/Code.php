@@ -14,6 +14,7 @@ class Code
     const DB_FAILED = 1002;
     const URL_FAILED = 1003;
     const METHOD_NOT_ALLOWED = 1004;//没有http权限
+    const ADMIN_NOT_LOGIN = 100001;//未登录
 
     /**
      * 错误码
@@ -36,6 +37,7 @@ class Code
         self::DB_FAILED           => '数据库执行错误',
         self::URL_FAILED          => '接口URL错误',
         self::VALIDATE_ERROR_CODE => '参数错误',
+        self::ADMIN_NOT_LOGIN     => '未登录,请重新登录',
 
         /**
          * 用户错误码

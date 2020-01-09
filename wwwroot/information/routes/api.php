@@ -17,9 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::match(['post', 'get'], 'adminUser', ['as' => 'contact.adminUser', 'uses' => 'AdminUserController@index']);
-    Route::match(['post', 'get'], 'admin', ['as' => 'contact.adminUser', 'uses' => 'AdminController@admin']);
-    Route::match(['post', 'get'], 'login', ['as' => 'contact.adminUser', 'uses' => 'AdminController@login']);
+Route::group(['prefix' => 'admin', 'middleware' => 'checkPermission', 'namespace' => 'Admin'], function () {
+    Route::match(['post', 'get'], 'adminUser', ['as' => 'admin.adminUser', 'uses' => 'UserController@index']);
+    Route::match(['post', 'get'], 'admin', ['as' => 'admin.adminUser', 'uses' => 'UserController@admin']);
+});
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::match(['post', 'get'], 'login', ['as' => 'admin.adminUser', 'uses' => 'UserController@login']);
 });
 
