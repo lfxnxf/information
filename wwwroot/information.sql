@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50723
 File Encoding         : 65001
 
-Date: 2020-01-09 17:05:02
+Date: 2020-01-09 17:50:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -53,6 +53,33 @@ CREATE TABLE `group` (
 INSERT INTO `group` VALUES ('1', 'admin管理员', '1', '0');
 
 -- ----------------------------
+-- Table structure for group_permission
+-- ----------------------------
+DROP TABLE IF EXISTS `group_permission`;
+CREATE TABLE `group_permission` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL DEFAULT '0',
+  `permission_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_group_id` (`group_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of group_permission
+-- ----------------------------
+INSERT INTO `group_permission` VALUES ('1', '1', '1');
+INSERT INTO `group_permission` VALUES ('2', '1', '2');
+INSERT INTO `group_permission` VALUES ('3', '1', '3');
+INSERT INTO `group_permission` VALUES ('4', '1', '4');
+INSERT INTO `group_permission` VALUES ('5', '1', '5');
+INSERT INTO `group_permission` VALUES ('6', '1', '6');
+INSERT INTO `group_permission` VALUES ('7', '1', '7');
+INSERT INTO `group_permission` VALUES ('8', '1', '8');
+INSERT INTO `group_permission` VALUES ('9', '1', '9');
+INSERT INTO `group_permission` VALUES ('10', '1', '10');
+INSERT INTO `group_permission` VALUES ('11', '1', '11');
+
+-- ----------------------------
 -- Table structure for group_user
 -- ----------------------------
 DROP TABLE IF EXISTS `group_user`;
@@ -61,7 +88,9 @@ CREATE TABLE `group_user` (
   `admin_user_id` int(11) NOT NULL DEFAULT '0',
   `group_id` int(11) NOT NULL DEFAULT '0',
   `create_at` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `idx_admin_user_id` (`admin_user_id`) USING BTREE,
+  KEY `idx_group_id` (`group_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
@@ -90,46 +119,32 @@ INSERT INTO `login_log` VALUES ('3', '1', '2130706433', '1578555165');
 INSERT INTO `login_log` VALUES ('4', '1', '2130706433', '1578558616');
 
 -- ----------------------------
--- Table structure for menu
+-- Table structure for permission
 -- ----------------------------
-DROP TABLE IF EXISTS `menu`;
-CREATE TABLE `menu` (
+DROP TABLE IF EXISTS `permission`;
+CREATE TABLE `permission` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `code` bigint(20) NOT NULL DEFAULT '0',
+  `permission_code` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '',
   `url` varchar(255) NOT NULL DEFAULT '',
   `level` tinyint(3) NOT NULL DEFAULT '0',
   `pid` tinyint(3) NOT NULL DEFAULT '0',
   `is_menu` tinyint(3) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
-
--- ----------------------------
--- Records of menu
--- ----------------------------
-INSERT INTO `menu` VALUES ('1', '101', '后台', '', '1', '0', '0');
-INSERT INTO `menu` VALUES ('2', '10101', '首页', 'index.html', '2', '1', '1');
-INSERT INTO `menu` VALUES ('3', '10102', '发布', 'release.html', '2', '1', '1');
-INSERT INTO `menu` VALUES ('4', '102', '管理', '', '1', '0', '0');
-INSERT INTO `menu` VALUES ('5', '10201', '分类管理', 'category.html', '2', '4', '1');
-INSERT INTO `menu` VALUES ('6', '10202', '内容管理', 'content.html', '2', '4', '1');
-INSERT INTO `menu` VALUES ('7', '103', '数据', '', '1', '0', '0');
-INSERT INTO `menu` VALUES ('8', '10301', '阅读数据', 'subscribe.html', '2', '7', '1');
-INSERT INTO `menu` VALUES ('9', '104', '设置', '', '1', '0', '0');
-INSERT INTO `menu` VALUES ('10', '10401', '账号信息', 'info.html', '2', '9', '1');
-
--- ----------------------------
--- Table structure for permission
--- ----------------------------
-DROP TABLE IF EXISTS `permission`;
-CREATE TABLE `permission` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `menu_id` int(11) NOT NULL DEFAULT '0',
-  `uri` varchar(255) NOT NULL DEFAULT '',
-  `short_name` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of permission
 -- ----------------------------
+INSERT INTO `permission` VALUES ('1', '101', '', '后台', '', '1', '0', '1');
+INSERT INTO `permission` VALUES ('2', '10101', '', '首页', 'index.html', '2', '1', '1');
+INSERT INTO `permission` VALUES ('3', '10102', '', '发布', 'release.html', '2', '1', '1');
+INSERT INTO `permission` VALUES ('4', '102', '', '管理', '', '1', '0', '1');
+INSERT INTO `permission` VALUES ('5', '10201', '', '分类管理', 'category.html', '2', '4', '1');
+INSERT INTO `permission` VALUES ('6', '10202', '', '内容管理', 'content.html', '2', '4', '1');
+INSERT INTO `permission` VALUES ('7', '103', '', '数据', '', '1', '0', '1');
+INSERT INTO `permission` VALUES ('8', '10301', '', '阅读数据', 'subscribe.html', '2', '7', '1');
+INSERT INTO `permission` VALUES ('9', '104', '', '设置', '', '1', '0', '1');
+INSERT INTO `permission` VALUES ('10', '10401', '', '账号信息', 'info.html', '2', '9', '1');
+INSERT INTO `permission` VALUES ('11', '1010101', 'reportData', '首页浏览数据', '/api/admin/reportData', '3', '2', '0');

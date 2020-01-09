@@ -40,9 +40,20 @@ class CheckPermissionMiddleware
         $request->merge(['user_id' => $ret['id']]);
     }
 
+    /**
+     * @param Request $request
+     * @return bool
+     * @throws AdminUserException
+     */
     protected function checkPermission(Request $request)
     {
-        $ret = $request->getRequestUri();
-
+        $url = $request->getRequestUri();
+        $permissionService = app('App\Services\Admin\PermissionService');
+        $permission = $permissionService->getPermission($request->input('user_id'));
+        $urls = array_column($permission, 'url');
+        if (!in_array($url, $urls)) {
+            AdminUserException::throwNotHasPermission();
+        }
+        return true;
     }
 }

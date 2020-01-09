@@ -23,4 +23,12 @@ class AdminUserException extends \Exception
         throw new self('', Code::ADMIN_NOT_LOGIN);
     }
 
+    /**
+     * @throws AdminUserException
+     */
+    public static function throwNotHasPermission()
+    {
+        throw new self('', Code::NOT_HAS_PERMISSION);
+    }
+
 }

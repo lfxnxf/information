@@ -15,6 +15,7 @@ class Code
     const URL_FAILED = 1003;
     const METHOD_NOT_ALLOWED = 1004;//没有http权限
     const ADMIN_NOT_LOGIN = 100001;//未登录
+    const NOT_HAS_PERMISSION = 100002;//没有权限
 
     /**
      * 错误码
@@ -38,6 +39,7 @@ class Code
         self::URL_FAILED          => '接口URL错误',
         self::VALIDATE_ERROR_CODE => '参数错误',
         self::ADMIN_NOT_LOGIN     => '未登录,请重新登录',
+        self::NOT_HAS_PERMISSION  => '没有权限！',
 
         /**
          * 用户错误码
