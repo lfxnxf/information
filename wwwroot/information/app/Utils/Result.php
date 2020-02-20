@@ -21,7 +21,6 @@ class Result
         } else {
             $msg = "$defaultMsg $msg";
         }
-
         return apiResponse()->json(empty($data) ?
             ['error' => $code, 'err_msg' => $msg] :
             ['error' => $code, 'err_msg' => $msg, 'data' => $data]

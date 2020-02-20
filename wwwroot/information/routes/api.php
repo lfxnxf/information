@@ -19,7 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'checkPermission', 'namespace' => 'Admin'], function () {
     Route::match(['post', 'get'], 'adminUser', ['as' => 'admin.adminUser', 'uses' => 'UserController@index']);
-    Route::match(['post', 'get'], 'admin', ['as' => 'admin.adminUser', 'uses' => 'UserController@admin']);
+    Route::match(['post', 'get'], 'getMenu', ['as' => 'admin.getMenu', 'uses' => 'MenuController@getMenu']);
+    Route::match(['post', 'get'], 'contentAdd', ['as' => 'admin.contentAdd', 'uses' => 'ContentController@add']);
 });
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::match(['post', 'get'], 'login', ['as' => 'admin.adminUser', 'uses' => 'UserController@login']);

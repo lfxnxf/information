@@ -25,6 +25,11 @@ class Code
     const USER_NOT_EXISTS = 3001; //用户不存在
 
     /**
+     * 上传图片错误
+     */
+    const UPLOAD_FAILED = 4001; //上传文件错误
+
+    /**
      * 错误码描述内容
      * @var array
      */
@@ -45,6 +50,8 @@ class Code
          * 用户错误码
          */
         self::USER_NOT_EXISTS     => '用户不存在',
+
+        self::UPLOAD_FAILED       => '上传文件失败',
     ];
 
     /**

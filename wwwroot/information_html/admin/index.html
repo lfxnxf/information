@@ -298,10 +298,6 @@
             $(this).addClass('hit').siblings().removeClass('hit');
             $('.ydc-panes>div:eq(' + $(this).index() + ')').show().siblings().hide();
         });
-        var url = baseUrl + 'adminUser';
-        ajaxPost(url, {}, function(msg){
-            console.log(msg);
-        })
     })
 </script>
 
